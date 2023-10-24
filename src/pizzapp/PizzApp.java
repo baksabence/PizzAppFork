@@ -9,7 +9,13 @@ public class PizzApp extends javax.swing.JFrame {
     int db = 1;
     
     double vegsoAr;
-
+    
+    int extra1;
+    
+    int extra2 = 0;
+    
+    int extra3;
+    
     int extrak;
     
     int darabSzorzo = 0;
@@ -23,11 +29,11 @@ public class PizzApp extends javax.swing.JFrame {
         
         db = 1;
         
-        int extra1 = 0;
+        extra1 = 0;
         
-        int extra2 = 0;
+        extra2 = 0;
         
-        int extra3 = 0;
+        extra3 = 0;
         
         extrak = extra1 + extra2 + extra3;
         
@@ -164,10 +170,25 @@ public class PizzApp extends javax.swing.JFrame {
         pnlExtrak.setBorder(javax.swing.BorderFactory.createTitledBorder("Extrák"));
 
         chbSajt.setText("sajt");
+        chbSajt.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                chbSajtItemStateChanged(evt);
+            }
+        });
 
         chbHagyma.setText("hagyma");
+        chbHagyma.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                chbHagymaItemStateChanged(evt);
+            }
+        });
 
         chbAnanasz.setText("ananász");
+        chbAnanasz.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                chbAnanaszItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlExtrakLayout = new javax.swing.GroupLayout(pnlExtrak);
         pnlExtrak.setLayout(pnlExtrakLayout);
@@ -283,11 +304,11 @@ public class PizzApp extends javax.swing.JFrame {
         
         db = 1;
         
-        int extra1 = 0;
+        extra1 = 0;
         
-        int extra2 = 0;
+        extra2 = 0;
         
-        int extra3 = 0;
+        extra3 = 0;
         
         extrak = extra1 + extra2 + extra3;
         
@@ -320,6 +341,42 @@ public class PizzApp extends javax.swing.JFrame {
         szamolasEsKiiras();
         
     }//GEN-LAST:event_numDbStateChanged
+
+    private void chbSajtItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chbSajtItemStateChanged
+        if (chbSajt.isSelected()){
+        extra1 += 250;
+        extrak = extra1 + extra2 + extra3;
+        szamolasEsKiiras();
+        }else{
+        extra1 += -250;
+        extrak = extra1 + extra2 + extra3;
+        szamolasEsKiiras();
+            }
+    }//GEN-LAST:event_chbSajtItemStateChanged
+
+    private void chbHagymaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chbHagymaItemStateChanged
+       if (chbSajt.isSelected()){
+        extra1 += 250;
+        extrak = extra1 + extra2 + extra3;
+        szamolasEsKiiras();
+        }else{
+        extra1 += -250;
+        extrak = extra1 + extra2 + extra3;
+        szamolasEsKiiras();
+            }
+    }//GEN-LAST:event_chbHagymaItemStateChanged
+
+    private void chbAnanaszItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chbAnanaszItemStateChanged
+       if (chbSajt.isSelected()){
+        extra1 += 250;
+        extrak = extra1 + extra2 + extra3;
+        szamolasEsKiiras();
+        }else{
+        extra1 += -250;
+        extrak = extra1 + extra2 + extra3;
+        szamolasEsKiiras();
+            }
+    }//GEN-LAST:event_chbAnanaszItemStateChanged
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
