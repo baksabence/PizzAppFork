@@ -31,11 +31,7 @@ public class PizzApp extends javax.swing.JFrame {
         extrak = extra1 + extra2 + extra3;
         
         
-        vegsoAr = alapAr * meretSzorzo + extrak;
-        
-        vegsoAr *= db; // vegsoAr = vegsoAr * db;
-        
-        lblAr.setText(vegsoAr + "");
+        szamolasEsKiiras();
     }
 
     @SuppressWarnings("unchecked")
@@ -290,25 +286,27 @@ public class PizzApp extends javax.swing.JFrame {
         extrak = extra1 + extra2 + extra3;
         
         
-        double vegsoAr = alapAr * meretSzorzo + extrak;
+        szamolasEsKiiras();
+    }//GEN-LAST:event_cmdValaszthatoPizzakActionPerformed
+
+    private void szamolasEsKiiras() {
+        vegsoAr = alapAr * meretSzorzo + extrak;
         
         vegsoAr *= db; // vegsoAr = vegsoAr * db;
         
         lblAr.setText(vegsoAr + "");
-    }//GEN-LAST:event_cmdValaszthatoPizzakActionPerformed
+    }
 
     private void rdbMeret25ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rdbMeret25ItemStateChanged
         meretSzorzo = .75;
         
-        double vegsoAr = alapAr * meretSzorzo + extrak;
-        
-        vegsoAr *= db; // vegsoAr = vegsoAr * db;
-        
-        lblAr.setText(vegsoAr + "");
+        szamolasEsKiiras();
     }//GEN-LAST:event_rdbMeret25ItemStateChanged
 
     private void rdbMeret32ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rdbMeret32ItemStateChanged
         meretSzorzo = 1;
+        
+        szamolasEsKiiras();
     }//GEN-LAST:event_rdbMeret32ItemStateChanged
 
     public static void main(String args[]) {
