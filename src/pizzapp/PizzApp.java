@@ -20,8 +20,12 @@ public class PizzApp extends javax.swing.JFrame {
     
     int darabSzorzo = 0;
     
+    String osszegzo = "A választott pizza : ";
+  
+    
     public PizzApp() {
         initComponents();
+        
         
         alapAr = 1750;
         
@@ -36,7 +40,7 @@ public class PizzApp extends javax.swing.JFrame {
         extra3 = 0;
         
         extrak = extra1 + extra2 + extra3;
-        
+       
         
         szamolasEsKiiras();
     }
@@ -218,6 +222,11 @@ public class PizzApp extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txaOsszesito);
 
         btnRendel.setText("Megrendelem");
+        btnRendel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRendelActionPerformed(evt);
+            }
+        });
 
         lblOsszesito.setText("Összestő:");
 
@@ -335,7 +344,9 @@ public class PizzApp extends javax.swing.JFrame {
         
         szamolasEsKiiras();
     }//GEN-LAST:event_rdbMeret32ItemStateChanged
-
+    private void kiiras() {
+        txaOsszesito.setText(osszegzo);
+    }
     private void numDbStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_numDbStateChanged
         db = (int) numDb.getValue();
         szamolasEsKiiras();
@@ -377,6 +388,32 @@ public class PizzApp extends javax.swing.JFrame {
         szamolasEsKiiras();
             }
     }//GEN-LAST:event_chbAnanaszItemStateChanged
+
+    private void btnRendelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRendelActionPerformed
+        osszegzo += cmdValaszthatoPizzak.getSelectedItem();
+        if(rdbMeret25.isSelected()){
+    osszegzo += "\n25cm\n";}
+    if(rdbMeret32.isSelected()){
+    osszegzo += "\n32cm\n";}
+    osszegzo += numDb.getValue();
+    osszegzo += "db";
+    if(chbSajt.isSelected()){
+                   osszegzo += "\nSajt, ";
+                   
+     }
+     if(chbAnanasz.isSelected()){
+                   osszegzo += "\nAnanász, ";
+                   
+     }
+     if(chbHagyma.isSelected()){
+                   osszegzo += "\nHagyma, ";
+      
+     }
+     osszegzo += lblAr.getText();
+     osszegzo += "Ft";
+      kiiras();
+        
+    }//GEN-LAST:event_btnRendelActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
